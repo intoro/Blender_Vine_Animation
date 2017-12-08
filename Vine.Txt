@@ -1,0 +1,231 @@
+Blender 2.87c
+
+  Start a new project
+file > reload start up file
+
+
+    ivy Add on
+file > user preferences > add-ons > search bar > Ivy > check mark .
+
+  Delete the box
+right-click the object > x > delete
+
+    Set the view
+numpad_5
+
+    Create some text
+shift_a > Text >
+
+    Zoom in
+Wheelpad_9
+
+    Rotate Text
+r > x > 90 > enter
+
+    edit mode: enter and exit
+tab > Backspace > custom "Text" > tab
+
+    Create Thickness
+object data button: F > extrud > 0.1
+
+    Create a mesh from the text
+alt+c > mesh from curved,,,
+
+    Ivy generator
+Rotate so that you see the bottom left of the first letter by holding the mouse scroll wheel and/or shift+scrollwheel
+right click text > shift+a > curved > ivy generator
+Ivy generator can only be edited before doing any other changes to the object
+
+  remove leaves
+uncheck grow leaves
+click update ivy button to save changes
+
+  Increase size
+size settings > max length > 3 > update Ivy
+
+  Weight Settings
+Weight settings > Adhesion Weight > 0.25 > update Ivy
+this determins how close to the object the vines grow
+
+  Branch Settings
+Branch Settings > Ivy branch size > 0.002 > update Ivy
+
+  Add More Vines
+The 3d cursor determins the starting point for the Ivy for each Letter
+CHange the random seed value to 1
+Click the 'Add New Ivy' button
+
+  Add New Vines to the next letter
+move the 3d cursor to the bottom of the next letter
+Click the 'Add New Ivy' button
+
+  Add More Vines
+CHange the random seed value to 0
+Click the 'Add New Ivy' button
+
+Do the same for the next letters
+
+  Remove The Text Mesh
+Find the 'Text Mesh' in the top right corner uncheck the 'eye' and the 'Camera'
+
+  Save Project
+File > Save As
+
+  Animate the vines So They Grow
+select one vine/letter > select the 'Data Object Button' (3rd from right, bezial cueve)
+Geometry Section > Bevel Factor > End:
+the 'End:' value controls the growth of the vines, this will be animated.
+Set the timeline to 1, Its at the bottom of the screen >
+Set 'End:' to 0 > Right click 'End:' > Insert Keyframe
+Set the timeline to 10 > keep 'End:' at 0 > Right click 'End:' > Insert Keyframe
+Set the timeline to 180 > Set 'End:' To 10 > Right click 'End:' > Insert Keyframe
+Test by scrolling timeline
+
+  Copy animation to other letters
+'select' menu, bottom right > 'Select All By Type' > curve - this selects all vines
+The first edited vine will be a different color indicating its the active object
+ctrl+l > Animation Data
+copies the animation fromthe active object to the rest of the selected vines
+
+  Make Ground
+Shift+a > Mesh > Plane
+Numpad_1, frontview
+Drag with red arrow, center under word > Pull down blue arrow below the word
+
+  Scale up
+s > 3 > 'enter'
+
+  Duplicate floor and make a fence
+Shift+d, duplicates > right-click
+
+  Rotate
+r > x > 90
+Numpad_3, Side view
+Drag with Green arrow, move Behind word
+
+  Add vines to the ground
+right-click ground to select it> left click the ground near the beginning of the word to move the 3d cursor
+shift+a > curve > add Ivy to mesh
+left click the ground near the center of the word > Click the add ivy button
+left click the ground near the end of the word > Click the add ivy button
+left click the ground in front of the word > Click the add ivy button
+
+
+  Add a material to the ground
+Click the material button (2nd to right, globe) > new >
+Change blender render to cycles render (Top of window) >
+Click use node button > Click circle next to color > Image texture
+  Download Ground Image
+open > select image
+
+  UV unwrap the ground so that the image can be seen
+Click the 4 squares(Top left of window) and switch to compositing mode
+Click the shader nodes button (looks the same as the material button , Globe, bottom left)
+move the  mouse cursor to bottom left screen and hit Tab to enter edit mode
+Press a once or twice until the ground is selected
+
+  Switch to material view to see the gorund
+click white circle at the bottom right of the bottom right window > select Material
+press u to unwrap > unwrap  the image should be visable now
+
+  Set the scale for the ground image
+in the UV editing window (The bottom left window) click the file button > select the ground image > zoom out
+Press a once or twice with the mouse still in the UV window until the ground is selected
+scale the image:  s > 3 > enter
+
+  Add depth
+In the top node window connect color in the Image Texture node to 'Displacement' in the Material Output Node
+Change are only visible in rendered view
+
+
+  Add a material to the Fence
+click tab for object mode > select by right-clicking the fence
+Click the material button (2nd to right, globe) > new >
+Click the small circle next to color > Image texture
+  Download Fence Image
+open > select image
+
+  UV unwrap the ground so that the image can be seen
+Tab > "a" twice to select he fence >
+press u to unwrap > unwrap
+
+  Set the scale for the fence image
+in the UV editing window (The bottom left window) click the file button > select the fence image > zoom out
+Press "a" once or twice with the mouse still in the UV window until the fence is selected
+scale the image:  s > 3 > enter
+drag the fence down to hide the seem
+
+  Add depth
+In the top node window connect color in the Image Texture node to 'Displacement' in the Material Output Node
+Change are only visible in rendered view
+
+  change to object mode
+move the cursor to the bottom left window > tab
+Click the 4 squares(Top left of window) and switch to default mode
+
+  Save Project
+File > Save As
+
+
+  Set up a light source
+Numpad_3, Side view > zoom out so you can see the lamp
+Right-click the lamp > drag the green arrow to about 3 grid points left of center
+click the object data button (sun and arrows) > scroll up
+make sure point lamp is selected > change the size to 3
+click the use nodes button > set the strength to 5000
+
+rotate scene with mouse wheel ans shift+mouse_wheel
+
+ add the material to the vines
+right-click a vine >
+Click the material button (2nd to right, globe) > new >
+set the color to Hex value of #7ba500
+Click the 4 squares(Top left of window) and switch to compositing screen
+in the bottom right window switch to render mode
+
+  with the node editor add some glossiness to the vines
+shift+a > shader > mix shader - drop it in between the two nodes
+shift+a > shader > glossy - place it below the diffuse node > connect it to bottom mix shader input
+set the glossy node to .05
+shift+a > input > layer weight
+connect the facing output on the layer weight node to factor on the mix shader
+set the blend value on the layer weight node to .15
+
+Click the 4 squares(Top left of window) and switch to the default layout
+switch to material view (white circle bottom of window)
+
+  copy the material to the other vines
+make sure the green vine is still selected
+select(bottom left) > select all by type > Curve
+ctrl+l > materials
+switch to rendered view
+
+  adjust the camera
+switch to materials view > numpad_0
+  Lock the camera to view
+n > check mark by "Lock the camera to view" > adjust the camera
+
+  finish the animation
+Set the end frame to 200 (bottom left of window)
+click the render button(camera right side menu) > open the sampling menu
+set render samples to 32
+set the output directory to where the file will save too
+set the format, mpeg
+set the frame rate to 30 fps
+
+  Save Project
+File > Save As
+
+  Render the animation
+click the animation button
+
+Render menu > play rendered animation  or  ctrl+F11
+
+
+
+
+
+
+
+
+.
